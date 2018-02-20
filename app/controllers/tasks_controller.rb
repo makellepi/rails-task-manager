@@ -19,11 +19,12 @@ class TasksController < ApplicationController
   end
 
   def edit
-
+    @task.save
   end
 
   def update
     @task.update(tasks_params)
+    @task.save
     redirect_to tasks_path(@task)
   end
 
