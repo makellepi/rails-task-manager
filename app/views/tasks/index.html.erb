@@ -1,0 +1,22 @@
+<h1>My tasks</h1>
+
+<% @tasks.each do |task| %>
+  <div>
+    <% if task.completed == true %>
+    <div><span class="glyphicon glyphicon-checked" aria-hidden="true"></span></div>
+    <% else %>
+    <div><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span></div>
+    <%end%>
+    <%= link_to task.title, task_path(task) %> -
+
+    <%= link_to "Delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+    <%= link_to 'edit', edit_task_path(task) %>
+  </div>
+
+<% end %>
+
+<%= link_to 'new', new_task_path %>
+
